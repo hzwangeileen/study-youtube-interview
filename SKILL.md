@@ -104,6 +104,24 @@ Never compress a long answer into one conclusion. Never replace several examples
 
 Use the speakers' real names when known. Keep the name label and the first paragraph on the same line. For continued paragraphs from the same uninterrupted turn, omit the repeated label.
 
+#### Mandatory sentence-by-sentence readability pass
+
+After drafting the complete QA, reread every dialogue block in chronological order. This is a full-coverage editing pass, not a spot check of the longest or noisiest answers.
+
+For each question and answer:
+
+1. Identify what person, company, system, project, or idea performs the action.
+2. Confirm that every declarative sentence has an explicit or unmistakable subject and predicate.
+3. Add the object, complement, scope, unit, or referent required to understand the verb or claim.
+4. Repair ASR sentence boundaries before polishing wording. Join clauses that the ASR split incorrectly; split run-ons only at genuine semantic boundaries.
+5. Replace dangling `它 / 他 / 这个 / 那个 / 这件事` with the concrete referent when the source makes it recoverable.
+6. Expand a meaningful short confirmation into the proposition being confirmed, merge it into the adjacent turn, or remove it if it contains no information.
+7. Preserve the speaker's first-person viewpoint, uncertainty, emotional force, examples, and reasoning length. Do not turn the answer into an editor's summary.
+
+Do not accept a paragraph merely because its individual words are recognizable. A reader who has not heard the audio must be able to identify who did what, to what object, for what reason, and with what limitation when the source supplies those elements.
+
+Maintain a private dialogue-block audit for long interviews. Mark every host and guest block as `already clear`, `revised`, `merged`, or `removed as filler`. The audit exists to prove full coverage; do not add it to the delivered document unless requested.
+
 ### 5. Write the core-content section from the full source map
 
 Write this section after mapping the complete QA, even though it appears before the QA in the document.
@@ -161,12 +179,14 @@ Before delivery, check all of the following:
 - The QA retains the original chronology, reasoning, examples, caveats, and meaningful follow-ups.
 - Every paragraph is understandable without replaying the audio; subjects, referents, sentence boundaries, and causal links are clear.
 - No standalone fragment depends on tone, gesture, or the previous audio turn to supply its subject, predicate, or required object.
+- Every dialogue block has been included in the sentence-by-sentence audit; count the host and guest blocks before delivery and investigate any unlabeled or unaudited block.
+- Search the finished QA for common ASR residue: duplicated words, broken punctuation, dangling confirmations, unexplained pronouns, and uncertain proper nouns. Fix each hit or intentionally qualify it.
 - No content was promoted into a stronger claim than the transcript supports.
 - Real speaker names replace generic labels when safely known.
 - Proper nouns are consistent; unresolved terms remain qualified.
 - No timestamps remain unless requested.
 - No opening montage, ad, or duplicated trailer dialogue was mistaken for the main interview.
 - No publishing artifacts appear: title variants, headline quotes, promotional intro, CTA, or broad editorial conclusion.
-- For Feishu, headings, speaker labels, final paragraphs, and blank blocks are present after a read-back.
+- For Feishu, read the edited content back from Feishu rather than trusting the write response. Confirm headings, every speaker label, final paragraphs, and blank blocks are present, and spot-check the first, middle, and last chapters for fluent complete sentences.
 
 If coverage is uncertain, report the missing source range or inaccessible transcript instead of claiming completion.
