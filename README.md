@@ -1,0 +1,105 @@
+# YouTube 访谈学习整理 Skill
+
+`study-youtube-interview` 是一个面向 Codex 的学习型 Skill，用来把 YouTube 访谈、播客字幕或语音转文字稿整理成：
+
+1. **无需阅读逐字稿也能理解整场访谈的详细核心内容**；
+2. **尽量忠实原意、同时能顺畅读懂的章节化 QA**。
+
+它适合个人学习、研究和资料归档，不以公众号、Substack 或媒体发布为目标。
+
+## 它能做什么
+
+- 读取 YouTube 字幕、飞书语音转文字、字幕文件或用户粘贴的 transcript。
+- 识别主持人、嘉宾、开场 montage、广告和重复片段。
+- 修正可以确认的人名、公司名、产品名和技术术语等 ASR 错误。
+- 按原始对话顺序划分 5–10 个章节。
+- 保留推理过程、案例、追问、技术机制、限定条件和不确定性。
+- 删除无意义语气词、口吃、错误断句和完全重复的内容。
+- 补全明确缺失的主语、谓语、宾语或补语，使每句话脱离音频也能看懂。
+- 默认删除时间戳。
+- 支持写入飞书，并在标题、段落和问答之间保留一个空行。
+
+## 与“发文章”有什么区别
+
+| 学习型整理 | 发布型编译 |
+|---|---|
+| 目标是理解和复查原访谈 | 目标是对外传播和阅读转化 |
+| 保持原始顺序和说话人结构 | 可以围绕新文章主线重构内容 |
+| QA 尽量保留全部实质信息 | 通常会压缩、改写和重新组织 |
+| 核心内容必须可以独立替代访谈 | 摘要更多承担导读作用 |
+| 不生成标题备选、金句、宣传引言或 CTA | 常包含完整发布包装 |
+| 不拔高观点，不补写结论 | 可以进行更强的编辑加工 |
+
+## 默认输出结构
+
+```text
+文档标题
+视频链接 / 嘉宾 / 主持人 / 时长
+整理说明
+
+核心内容
+- 10–18 条详细、可独立理解的 bullet points
+
+QA 整理
+01. 章节标题
+主持人：问题……
+嘉宾：回答……
+
+02. 章节标题
+……
+```
+
+## 安装
+
+### 方法一：使用 Codex 自带的 Skill Installer
+
+```bash
+python3 ~/.codex/skills/.system/skill-installer/scripts/install-skill-from-github.py \
+  --repo hzwangeileen/study-youtube-interview \
+  --path . \
+  --name study-youtube-interview
+```
+
+安装完成后，在下一轮对话中即可使用。
+
+### 方法二：手动安装
+
+1. [下载仓库 ZIP](https://github.com/hzwangeileen/study-youtube-interview/archive/refs/heads/main.zip)。
+2. 解压后，将文件夹命名为 `study-youtube-interview`。
+3. 将整个文件夹复制到：
+
+```text
+~/.codex/skills/study-youtube-interview
+```
+
+## 使用示例
+
+```text
+使用 $study-youtube-interview 整理这个 YouTube 访谈：
+https://www.youtube.com/watch?v=...
+
+输出到飞书。不要时间戳，核心内容要详细，QA 尽量忠实原文，
+但要修正语音识别错误，并保证每句话的主谓宾完整。
+```
+
+也可以直接提供 transcript：
+
+```text
+使用 $study-youtube-interview 整理附件中的语音转文字稿。
+这是用于个人学习的资料，不需要重构成文章。
+```
+
+如果 Codex 无法访问 YouTube 字幕，Skill 会明确要求用户提供 transcription，不会根据标题或简介虚构访谈内容。
+
+## 整理原则
+
+- **忠实不等于照抄 ASR。** 保留说话人的原意、信息和语气，同时修复病句、残句、混乱指代和错误标点。
+- **可读不等于重写观点。** 可以调整句子结构，但不能改变因果关系、结论强度或说话人的不确定性。
+- **简洁不等于压缩信息。** 优先删除语气词和重复，不删除案例、理由、机制和限制条件。
+- **不确定就保留不确定。** 无法确认的专有名词或数字不能靠猜测补全。
+
+完整工作流和格式要求见 [SKILL.md](./SKILL.md)。
+
+## License
+
+[MIT License](./LICENSE)
