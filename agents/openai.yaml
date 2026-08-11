@@ -1,0 +1,4 @@
+interface:
+  display_name: "YouTube 访谈学习整理"
+  short_description: "将 YouTube 访谈整理成详细核心内容与保真 QA 学习文档"
+  default_prompt: "Use $study-youtube-interview to turn this YouTube interview into self-contained study notes and a lightly edited QA transcript."
